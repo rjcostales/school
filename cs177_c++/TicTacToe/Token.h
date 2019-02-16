@@ -17,11 +17,11 @@ public:
 	{							// matrix drawn upside down to match keypad
 		for (int i = 2; i >= 0; i--)
 		{
-			cout << ' ' << matrix[i][0] << " |";
-			cout << ' ' << matrix[i][1] << " |";
-			cout << ' ' << matrix[i][2] << '\n';
+			std::cout << ' ' << matrix[i][0] << " |";
+			std::cout << ' ' << matrix[i][1] << " |";
+			std::cout << ' ' << matrix[i][2] << '\n';
 			if (i)
-				cout << "---+---+---\n";
+				std::cout << "---+---+---\n";
 		}
 	}
 	// constructor

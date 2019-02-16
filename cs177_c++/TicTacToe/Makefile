@@ -1,8 +1,13 @@
+CC	:= g++
+
 Game: ModTree.o Token.o Game.o
-	g++ ModTree.o Token.o Game.o -o Game
+	$(CC) ModTree.o Token.o Game.o -o $@
+
 ModTree.o: ModTree.h ModTree.cc
-	g++ -c ModTree.cc
+	$(CC) -c ModTree.cc -o $@
+
 Token.o: Token.h Token.cc
-	g++ -c Token.cc
+	$(CC) -c Token.cc -o $@
+
 Game.o: ModTree.o Token.o Game.cc
-	g++ -c Game.cc
+	$(CC) -c Game.cc -o $@

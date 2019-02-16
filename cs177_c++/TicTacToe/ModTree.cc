@@ -105,19 +105,19 @@ int ModTree::prevInt(int i, Node  *node)
 
 void ModTree::save(char *filename)		// a crude function, but it works!
 {
-	ifstream inFile(filename, ios::in);
+	std::ifstream inFile(filename, std::ios::in);
 	char c;
 
 	if (inFile) // some file checking
 	{
-		cout << "Overwrite existing file:" << filename << " [y/n] ";
-		cin >> c;
-		cout << '\n';
+		std::cout << "Overwrite existing file:" << filename << " [y/n] ";
+		std::cin >> c;
+		std::cout << '\n';
 		if (tolower(c) != 'y')
 			return;
 	}
 
-	ofstream outFile(filename, ios::out);
+	std::ofstream outFile(filename, std::ios::out);
 	Node  *node1, *node2, *node3, *node4, *node5;
 
 	node1 = root;
@@ -170,13 +170,13 @@ void ModTree::save(char *filename)		// a crude function, but it works!
 
 void ModTree::load(char *filename)
 {
-	ifstream inFile(filename, ios::in);
+	std::ifstream inFile(filename, std::ios::in);
 	char c;								// mX & mO read in as char '0' - '9'
 	int i = 0;							// flag to tell if mX or xO value
 
 	if (!inFile)						// some file checking
 	{
-		cout << "file:" << filename << " doesn't exist, no data loaded!\n";
+		std::cout << "file:" << filename << " doesn't exist, no data loaded!\n";
 		return;
 	}
 
@@ -194,7 +194,7 @@ void ModTree::load(char *filename)
 				curr->mO = c - '0';
 		}
 	}
-	cout << "file:" << filename << " loaded.\n";
+	std::cout << "file:" << filename << " loaded.\n";
 }
 
 // EOF

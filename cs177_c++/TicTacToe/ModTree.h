@@ -11,12 +11,12 @@
 class ModTree
 {
 public:
-	int getO();					// function to return mO
-	void putX(int);				// function to store mX
-	void learn() { curr = 0; }	// branch of tree good, keep it
-	void forget();				// branch of tree bad, go back to root
-	void save(char *);			// save tree to file
-	void load(char *);			// load tree from file
+	int   getO();				// function to return mO
+	void  putX(int);				// function to store mX
+	void  learn() { curr = 0; }	// branch of tree good, keep it
+	void  forget();				// branch of tree bad, go back to root
+	void  save(char *);			// save tree to file
+	void  load(char *);			// load tree from file
 	// constructor
 	ModTree() { root = curr = 0; }
 private:
@@ -27,13 +27,13 @@ private:
 		Node *next; Node *prev; Node *down;
 		// constructor & destructor
 		Node(int pX) { mX = pX; mO = 0; next = prev = down = 0; }
-		~Node() { mX = mO = 0; next = prev = down = 0; }
+	   ~Node() { mX = mO = 0; next = prev = down = 0; }
 	};
 	Node *root, *curr;
 	Node *addDown(int, Node *); // add branch down
 	Node *addNext(int, Node *); // add branch next
-	void cutNext(Node *);		// cut branch next
-	void incrInt(Node *);		// increment mO
-	int findInt(Node *);		// finds int not in branch
-	int prevInt(int, Node *);	// returns true if int in branch
+	void  cutNext(Node *);		// cut branch next
+	void  incrInt(Node *);		// increment mO
+	int   findInt(Node *);		// finds int not in branch
+	int   prevInt(int, Node *);	// returns true if int in branch
 };
