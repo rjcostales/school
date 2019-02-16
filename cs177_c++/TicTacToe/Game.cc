@@ -1,5 +1,5 @@
 /* Raphael J.S. Costales
- * Game.cc #/20/93
+ * Game.cc 3/20/93
  *
  * Main function of TicTacToe Game.	 Game uses two classes ModTree and Token
  * which communicate through member functions.	There are a couple "goto's"!

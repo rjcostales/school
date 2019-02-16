@@ -1,5 +1,9 @@
 CC		:= g++
+<<<<<<< HEAD
 CFLAGS	:= -Wall -std=c++98
+=======
+CFLAGS	:= -std=c++98
+>>>>>>> 5abd870d5ef0fa4259508a59ccf4b9111f16f121
 
 TicTacToe: ModTree.o Token.o Game.o
 	$(CC) $(CFLAGS) ModTree.o Token.o Game.o -o $@
