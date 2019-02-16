@@ -1,6 +1,6 @@
 CC	:= g++
 
-Game: ModTree.o Token.o Game.o
+TicTacToe: ModTree.o Token.o Game.o
 	$(CC) ModTree.o Token.o Game.o -o $@
 
 ModTree.o: ModTree.h ModTree.cc
@@ -11,3 +11,6 @@ Token.o: Token.h Token.cc
 
 Game.o: ModTree.o Token.o Game.cc
 	$(CC) -c Game.cc -o $@
+
+clean:
+	rm -rf *.o TicTacToe
