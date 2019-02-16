@@ -13,7 +13,7 @@
 
 #include "project_manager.h"
 
-FILE           *output;
+FILE       *output;
 
 extern list attribute_names;
 extern list relation_names;

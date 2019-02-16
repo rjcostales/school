@@ -1,1 +1,11 @@
-* VOCABULARY vocabularysubroutine;global;-subroutine calls/called_by subroutine;subroutine uses/used_by global;global uses/used_by global;
+* VOCABULARY vocabulary
+
+subroutine;
+global;
+
+-
+
+subroutine calls/called_by subroutine;
+subroutine uses/used_by global;
+global uses/used_by global;
+
