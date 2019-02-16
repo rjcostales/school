@@ -5,6 +5,8 @@
  * which communicate through member functions.	There are a couple "goto's"!
  * Oh well...
  */
+#include <iostream>
+using namespace std;
 
 #include "ModTree.h"
 #include "Token.h"
@@ -15,15 +17,15 @@ int main()
 	ModTree Computer;
 	int move;
 
-	Computer.load("data");
+	Computer.load((char *)"data");
 
-	std::cout << "Use keypad to enter moves\n";
-	std::cout << " 7 | 8 | 9 \n";
-	std::cout << "---+---+---\n";
-	std::cout << " 4 | 5 | 6 \n";
-	std::cout << "---+---+---\n";
-	std::cout << " 1 | 2 | 3 \n";
-	std::cout << "Enter 0 to quit\n\n";
+	cout << "Use keypad to enter moves\n";
+	cout << " 7 | 8 | 9 \n";
+	cout << "---+---+---\n";
+	cout << " 4 | 5 | 6 \n";
+	cout << "---+---+---\n";
+	cout << " 1 | 2 | 3 \n";
+	cout << "Enter 0 to quit\n\n";
 
 	Computer.learn();
 
@@ -37,7 +39,7 @@ loop:
 
 		do
 		{
-			std::cout << "Enter move ";
+			cout << "Enter move ";
 			std::cin >> move;
 			if (!move) goto pass;
 		}
@@ -49,7 +51,7 @@ loop:
 		{
 			Computer.forget();
 			Token::print();
-			std::cout << "You win\n\n";
+			cout << "You win\n\n";
 			break;
 		}
 
@@ -57,7 +59,7 @@ loop:
 		{
 			Computer.learn();
 			Token::print();
-			std::cout << "Draw\n\n";
+			cout << "Draw\n\n";
 			break;
 		}
 
@@ -67,7 +69,7 @@ loop:
 		{
 			Computer.learn();
 			Token::print();
-			std::cout << "You lose!!!\n\n";
+			cout << "You lose!!!\n\n";
 			break;
 		}
 	}

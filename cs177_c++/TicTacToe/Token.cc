@@ -1,8 +1,10 @@
 /* Raphael J.S. Costales
  * Token.h 3/20/93
  */
-
 #include <iostream>
+#include <iostream>
+using namespace std;
+
 #include "Token.h"
 
 char Token::matrix[3][3] = {	// Initialize static matrix
@@ -77,4 +79,3 @@ void Token::fill()
 		for (int j = 0; j < 3; j++)
 			matrix[i][j] = mC;
 }
-

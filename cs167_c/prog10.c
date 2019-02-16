@@ -11,9 +11,20 @@
 
 #include <stdio.h>
 #include <string.h>
-#define MAX 64
-#define TRUE    1
-#define FLASE   0
+#include <ctype.h>
+#include <stdbool.h>
+
+#define MAX     64
+
+int ispalindrome(char s[])      /* returns true if s is a palindrome */
+{
+    int i = 0, j;
+    j = strlen(s);
+    while (i < j)
+        if (tolower(s[i++]) != tolower(s[--j]))
+            return false;
+    return true;
+}
 
 int main(int argc, char* argv[])
 {
@@ -23,15 +34,5 @@ int main(int argc, char* argv[])
         if ((strlen(s) != 1) && (ispalindrome(s)))
             puts(s);
     }
-    return TRUE;
-}
-
-int ispalindrome(char s[])      /* returns TRUE if s is a palindrome */
-{
-    int i = 0, j;
-    j = strlen(s);
-    while (i < j)
-        if (tolower(s[i++]) != tolower(s[--j]))
-            return FLASE;
-    return TRUE;
+    return true;
 }

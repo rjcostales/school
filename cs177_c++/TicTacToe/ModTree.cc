@@ -1,10 +1,12 @@
 /* Raphael J.S. Costales
  * ModTree.cc 3/20/93
  */
-
 #include <iostream>
 #include <fstream>
+using namespace std;
+
 #include <ctype.h>
+
 #include "ModTree.h"
 
 int ModTree::getO()
@@ -96,7 +98,7 @@ int ModTree::prevInt(int i, Node  *node)
 	if (node->mX == i)
 		return 1;
 
-	while (node = node->prev)
+	while ((node = node->prev))
 		if ((node->mO == i)||(node->mX == i))
 			return 1;
 
@@ -105,31 +107,31 @@ int ModTree::prevInt(int i, Node  *node)
 
 void ModTree::save(char *filename)		// a crude function, but it works!
 {
-	std::ifstream inFile(filename, std::ios::in);
+	ifstream inFile(filename, ios::in);
 	char c;
 
 	if (inFile) // some file checking
 	{
-		std::cout << "Overwrite existing file:" << filename << " [y/n] ";
-		std::cin >> c;
-		std::cout << '\n';
+		cout << "Overwrite existing file:" << filename << " [y/n] ";
+		cin >> c;
+		cout << '\n';
 		if (tolower(c) != 'y')
 			return;
 	}
 
-	std::ofstream outFile(filename, std::ios::out);
+	ofstream outFile(filename, ios::out);
 	Node  *node1, *node2, *node3, *node4, *node5;
 
 	node1 = root;
 	while (node1)
 	{
-		if (node2 = node1->next) while (node2)
+		if ((node2 = node1->next)) while (node2)
 		{
-			if (node3 = node2->next) while (node3)
+			if ((node3 = node2->next)) while (node3)
 			{
-				if (node4 = node3->next) while (node4)
+				if ((node4 = node3->next)) while (node4)
 				{
-					if (node5 = node4->next) while (node5)
+					if ((node5 = node4->next)) while (node5)
 					{
 						outFile << node1->mX << node1->mO;
 						outFile << node2->mX << node2->mO;
@@ -170,13 +172,13 @@ void ModTree::save(char *filename)		// a crude function, but it works!
 
 void ModTree::load(char *filename)
 {
-	std::ifstream inFile(filename, std::ios::in);
+	ifstream inFile(filename, ios::in);
 	char c;								// mX & mO read in as char '0' - '9'
 	int i = 0;							// flag to tell if mX or xO value
 
 	if (!inFile)						// some file checking
 	{
-		std::cout << "file:" << filename << " doesn't exist, no data loaded!\n";
+		cout << "file:" << filename << " doesn't exist, no data loaded!\n";
 		return;
 	}
 
@@ -188,13 +190,13 @@ void ModTree::load(char *filename)
 			learn();
 		else
 		{
-			if (i = !i)
+			if ((i = !i))
 				putX(c - '0');
 			else
 				curr->mO = c - '0';
 		}
 	}
-	std::cout << "file:" << filename << " loaded.\n";
+	cout << "file:" << filename << " loaded.\n";
 }
 
 // EOF
