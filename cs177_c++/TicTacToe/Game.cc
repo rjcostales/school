@@ -1,5 +1,5 @@
 /* Raphael J.S. Costales
- * Game.cc #/20/93
+ * Game.cc 3/20/93
  *
  * Main function of TicTacToe Game.	 Game uses two classes ModTree and Token
  * which communicate through member functions.	There are a couple "goto's"!
@@ -15,7 +15,7 @@ int main()
 	ModTree Computer;
 	int move;
 
-	Computer.load("data");
+	Computer.load((char *)"data");
 
 	std::cout << "Use keypad to enter moves\n";
 	std::cout << " 7 | 8 | 9 \n";
