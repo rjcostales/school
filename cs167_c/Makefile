@@ -12,4 +12,4 @@ $(TGTS): $(SRCS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf $(TGTS) $(OBJS) a.out
+	rm -rf $(TGTS) $(OBJS)
