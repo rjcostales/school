@@ -12,7 +12,7 @@ class ModTree
 {
 public:
 	int   getO();				// function to return mO
-	void  putX(int);				// function to store mX
+	void  putX(int);			// function to store mX
 	void  learn() { curr = 0; }	// branch of tree good, keep it
 	void  forget();				// branch of tree bad, go back to root
 	void  save(char *);			// save tree to file

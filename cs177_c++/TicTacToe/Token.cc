@@ -7,11 +7,12 @@ using namespace std;
 
 #include "Token.h"
 
-char Token::matrix[3][3] = {	// Initialize static matrix
-							{ ' ', ' ', ' ' },
-							{ ' ', ' ', ' ' },
-							{ ' ', ' ', ' ' }
-						};
+char Token::matrix[3][3] =
+	{	// Initialize static matrix
+		{ ' ', ' ', ' ' },
+		{ ' ', ' ', ' ' },
+		{ ' ', ' ', ' ' }
+	};
 
 int Token::move(int i)			// use digit input so it works with
 {								// keypad entry and ModTree storage.
