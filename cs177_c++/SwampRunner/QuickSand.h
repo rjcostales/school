@@ -23,5 +23,7 @@ int QSand::safe()
 {
 	return 0;
 }
+
 #endif
+
 // EOF

@@ -47,5 +47,7 @@ Coord HalfWit::step()
 			 mQSandCells.isMember(mPos));	// previous quicksand cell
 	return mPos;
 }
+
 #endif
+
 // EOF

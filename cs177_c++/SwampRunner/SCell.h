@@ -20,5 +20,7 @@ public:
 protected:
 	char mImage;
 };
+
 #endif
+
 // EOF

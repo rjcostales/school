@@ -11,24 +11,24 @@
 
 void sort(int array[], int size)
 {
-    int i, j;
-    int min;
-    int pos;
-    int cnt;
+	int i, j;
+	int min;
+	int pos;
+	int cnt;
 
-    for (i = 0; i < size; i++)
-    {
-        min = array[i];
-        pos = i;
-        for (j = i + 1; j < size; j++)
-        {
-            if (COMP(array[j], min))
-            {
-                min = array[j];
-                pos = j;
-            }
-        }
-        array[pos] = array[i];
-        array[i]   = min;
-    }
+	for (i = 0; i < size; i++)
+	{
+		min = array[i];
+		pos = i;
+		for (j = i + 1; j < size; j++)
+		{
+			if (COMP(array[j], min))
+			{
+				min = array[j];
+				pos = j;
+			}
+		}
+		array[pos] = array[i];
+		array[i]   = min;
+	}
 }

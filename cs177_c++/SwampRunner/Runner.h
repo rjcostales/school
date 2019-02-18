@@ -50,5 +50,7 @@ void Runner::statistics()
 	cout <<"Moves: " << mMoves << '\t';
 	cout <<"Attemps: " << mAttemps << '\n';
 }
+
 #endif
+
 // EOF

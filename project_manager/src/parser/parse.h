@@ -8,18 +8,18 @@ int Main(int argc, char ** argv);
 
 enum
 {
-    IN, OUT
+	IN, OUT
 };
 
 typedef enum
 {
-    none, inner, outer, subroutine, global
+	none, inner, outer, subroutine, global
 } type;
 
 typedef struct node
 {
-    char            name[64];
-    struct node    *left, *right;
+	char            name[64];
+	struct node    *left, *right;
 } node, *tree;
 
 int iskeyword(char[]);
@@ -27,4 +27,3 @@ void insert(tree *, char[]);
 void print(tree);
 tree locate(tree, char[]);
 int  main(int, char **);
-

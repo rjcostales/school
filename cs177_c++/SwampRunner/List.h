@@ -48,4 +48,7 @@ private:
 	Type& atIndex(int) const;
 	void error(char *) const;
 };
+
 #endif
+
+// EOF

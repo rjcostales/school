@@ -25,5 +25,7 @@ int Ground::safe()
 {
 	return 1;
 }
+
 #endif
+
 // EOF

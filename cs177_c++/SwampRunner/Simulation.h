@@ -170,5 +170,7 @@ int Swamp::isSafe(Coord p)
 {
 	return mSwamp[p.x][p.y]->safe();
 }
+
 #endif
+
 // EOF

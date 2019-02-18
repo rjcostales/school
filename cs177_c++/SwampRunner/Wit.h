@@ -13,10 +13,10 @@ public:
 // member funtions
 	void draw(int);
 	void setPos(Coord);
-	
+
 protected:
 	Coord step();  // value returned by virtual function move
-	
+
 	List mPrevPath;
 };
 /*
@@ -44,5 +44,7 @@ Coord Wit::step()
 	mPos = HalfWit::step();		// act like a HalfWit
 	return mPos;
 }
+
 #endif
+
 // EOF

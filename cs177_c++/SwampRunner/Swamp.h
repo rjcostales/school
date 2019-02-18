@@ -26,5 +26,7 @@ private:
 	SCell	*mSwamp[20][20];
 	Coord	mMax;
 };
+
 #endif
+
 // EOF

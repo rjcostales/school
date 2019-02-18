@@ -18,21 +18,21 @@
 
 int ispalindrome(char s[])      /* returns true if s is a palindrome */
 {
-    int i = 0, j;
-    j = strlen(s);
-    while (i < j)
-        if (tolower(s[i++]) != tolower(s[--j]))
-            return false;
-    return true;
+	int i = 0, j;
+	j = strlen(s);
+	while (i < j)
+		if (tolower(s[i++]) != tolower(s[--j]))
+			return false;
+	return true;
 }
 
 int main(int argc, char* argv[])
 {
-    char s[MAX];
-    while ((gets(s)) != NULL)
-    {
-        if ((strlen(s) != 1) && (ispalindrome(s)))
-            puts(s);
-    }
-    return true;
+	char s[MAX];
+	while ((gets(s)) != NULL)
+	{
+		if ((strlen(s) != 1) && (ispalindrome(s)))
+			puts(s);
+	}
+	return true;
 }
