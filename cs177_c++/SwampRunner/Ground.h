@@ -1,11 +1,14 @@
-/*	Raphael J. S. Costale
- *	Ground.h
- *	5/5/93
+/* Raphael J. S. Costale
+ * Ground.h
+ * 5/5/93
  */
+
 #ifndef GROUND_H
 #define GROUND_H
-#include <ostream.h>
-#include"SCell.h"
+
+using namespace std;
+
+#include "SCell.h"
 
 class Ground : public SCell
 {
@@ -25,7 +28,4 @@ int Ground::safe()
 {
 	return 1;
 }
-
 #endif
-
-// EOF

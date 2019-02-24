@@ -5,8 +5,6 @@
 #include <fstream>
 using namespace std;
 
-#include <ctype.h>
-
 #include "ModTree.h"
 
 int ModTree::getO()
@@ -50,8 +48,8 @@ ModTree::Node *ModTree::addDown(int pX, Node *node)
 	if (node->mX == pX)
 		return node;
 
-	node->down = new ModTree::Node(pX);// create and return pointer to
-	node->down->prev = node->prev;	   // new node
+	node->down = new ModTree::Node(pX);	// create and return pointer to
+	node->down->prev = node->prev;		// new node
 	return node->down;
 }
 
@@ -93,7 +91,7 @@ int ModTree::findInt(Node *node)
 	return node->mO;
 }
 
-int ModTree::prevInt(int i, Node  *node)
+int ModTree::prevInt(int i, Node *node)
 {
 	if (node->mX == i)
 		return 1;
@@ -120,7 +118,7 @@ void ModTree::save(char *filename)		// a crude function, but it works!
 	}
 
 	ofstream outFile(filename, ios::out);
-	Node  *node1, *node2, *node3, *node4, *node5;
+	Node *node1, *node2, *node3, *node4, *node5;
 
 	node1 = root;
 	while (node1)

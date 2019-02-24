@@ -1,23 +1,28 @@
-/*	Raphael J. S. Costale
- *	Simulation.h
- *	5/5/93
+/* Raphael J. S. Costale
+ * Simulation.h
+ * 5/5/93
  */
+
 #ifndef SIMULATION_H
 #define SIMULATION_H
-#define min(x,y) ((x)<(y)?(x):(y))
-#include <ostream.h>
-#include <istream.h>
+
 #include <stdlib.h>
+#include <iostream>
 #include <time.h>
-#include"List.h"
-#include"Runner.h"
-#include"DimWit.h"
-#include"HalfWit.h"
-#include"Wit.h"
-#include"Genius.h"
-#include"Swamp.h"
-#include"Ground.h"
-#include"QuickSand.h"
+
+using namespace std;
+
+#include "List.h"
+#include "Runner.h"
+#include "DimWit.h"
+#include "HalfWit.h"
+#include "Wit.h"
+#include "Genius.h"
+#include "Swamp.h"
+#include "Ground.h"
+#include "QuickSand.h"
+
+#define min(x,y) ((x)<(y)?(x):(y))
 
 class Simulation
 {
@@ -31,21 +36,22 @@ private:
 	void draw();
 	int validPath();
 
-	Swamp  *mSwamp;
-	Coord	mMax;
+	Swamp *mSwamp;
+	Coord mMax;
 	Runner *mRunner;
 
-	List	mPath;
-	Coord	mBeg;
-	Coord	mEnd;
+	List mPath;
+	Coord mBeg;
+	Coord mEnd;
 };
+
 //	Simulation implementations
 Simulation::Simulation()
 {
 	srand(time(NULL));
 	mPath.clear();
 	int type, mx, my, x, y;
-	cout <<"Getting file...\n";                // read in file
+	cout <<"Getting file...\n";					// read in file
 	cin >> type >> my >> mx;
 	while (cin >> y >> x)
 		mPath.append(Coord(x, y));
@@ -120,7 +126,7 @@ int Simulation::validPath()
 
 	return ((mBeg.x == 0) || (mBeg.x == mMax.x) ||
 			(mBeg.y == 0) || (mBeg.y == mMax.y)) &&
-		   ((mEnd.x == 0) || (mEnd.x == mMax.x) ||
+		 ((mEnd.x == 0) || (mEnd.x == mMax.x) ||
 			(mEnd.y == 0) || (mEnd.y == mMax.y));
 }
 //	Swamp implementation
@@ -161,16 +167,14 @@ void Swamp::draw()
 		cout << '\n';
 	}
 }
-int Swamp::inSwamp(Coord pC)
+bool Swamp::inSwamp(Coord pC)
 {
 	return ((pC.x >= 0) && (pC.x <= mMax.x) &&
 			(pC.y >= 0) && (pC.y <= mMax.y));
 }
-int Swamp::isSafe(Coord p)
+bool Swamp::isSafe(Coord p)
 {
 	return mSwamp[p.x][p.y]->safe();
 }
 
 #endif
-
-// EOF

@@ -4,6 +4,7 @@
 
  #ifndef LIST_CC
  #define LIST_CC
+
  #include"List.h"
 
  // Friend operator
@@ -48,7 +49,7 @@
 	return atIndex(pIndex);
 }
 
-int List::operator==(List& pList) const
+bool List::operator==(List pList) const
 {
 	Element *curr = mHead;
 	if (mSize == pList.mSize)	{
@@ -62,7 +63,7 @@
 	}	return 0;
 }
 
-int List::operator!=(List& pList) const
+bool List::operator!=(List pList) const
 {
 	return !(*this == pList);
 }
@@ -105,7 +106,7 @@
 		if ((pIndex >= 0)&&(pIndex <= mSize)) {
 			if (pIndex) {
 				while (--pIndex)
-				   curr = curr->mNext;
+					curr = curr->mNext;
 
 				newElem->mNext = curr->mNext;
 				 curr->mNext = newElem;
@@ -113,7 +114,7 @@
 				newElem->mNext = mHead;
 				 mHead = newElem;
 			}
-	   } else
+		} else
 			error("insert(): subscript out of range\n");
 	 } else
 		mHead = newElem;
@@ -126,7 +127,7 @@
 	return insert(pData, mSize);
 }
 
-Type List::remove(int pIndex)
+Type& List::remove(int pIndex)
 {
 	Element *curr = mHead, *temp = mHead;
 	Type tmpData;
@@ -137,80 +138,78 @@
 				while(--pIndex)
 					curr = curr->mNext;
 
-				temp = curr->mNext;
-				curr->mNext = temp->mNext;
+				temp = curr->mNext;
+				curr->mNext = temp->mNext;
 			}	else
 				mHead = curr->mNext;
 
-			tmpData = temp->mData;
-			delete temp;
-			mSize--;
-		}	else
-			error("remove(): subscript out of range\n");
-	}	else
+			tmpData = temp->mData;
+			delete temp;
+			mSize--;
+		}	else
+			error("remove(): subscript out of range\n");
+	}	else
 		error("remove(): List is empty\n");
 	return tmpData;
 }
 
 List& List::purge(Type pData)
-{
+{
 	Element *temp = mHead, *curr = mHead;
 	while (curr) {
-		if (curr->mData == pData)	{
-			if (curr == mHead)	{
-				mHead = curr->mNext;
-				delete curr;
-				curr = mHead;
-			} else {
-				temp->mNext = curr->mNext;
-				delete curr;
-				curr = temp->mNext;
-			}
+		if (curr->mData == pData)	{
+			if (curr == mHead)	{
+				mHead = curr->mNext;
+				delete curr;
+				curr = mHead;
+			} else {
+				temp->mNext = curr->mNext;
+				delete curr;
+				curr = temp->mNext;
+			}
 
-			mSize--;
-		}	else {
-			temp = curr;
-			curr = curr->mNext;
-		}
-	}
+			mSize--;
+		}	else {
+			temp = curr;
+			curr = curr->mNext;
+		}
+	}
 
 	return *this;
 }
 
-int List::length() const {
+int List::length() const {
 	return mSize;
 }
 
-int List::isMember(Type pData) const {
+int List::isMember(Type pData) const {
 	Element *curr = mHead;
 	int count = 0;
 	while (curr)	{
 		if (curr->mData == pData)
-		   count++;
-		curr = curr->mNext;
-	}
+			count++;
+		curr = curr->mNext;
+	}
 	return count;
 }
 
-Type& List::atIndex(int pIndex) const {
-	Element *curr = mHead;
+Type& List::atIndex(int pIndex) const {
+	Element *curr = mHead;
 
-	if (curr)	{
+	if (curr)	{
 		if ((pIndex >= 0)&&(pIndex < mSize))		{
-			while(pIndex--)
+			while(pIndex--)
 				curr = curr->mNext;
-		} else
+		} else
 			error("operator[]: subscript out of range\n");
-	} else
+	} else
 		error("operator[]: List is empty\n");
 	return curr->mData;
 }
 
-void List::error(char *errMessage) const {
+void List::error(char *errMessage) const {
 	cerr << errMessage;
 	exit(0);
 }
 
 #endif
-
-// EOF

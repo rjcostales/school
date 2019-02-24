@@ -1,14 +1,18 @@
-/*	Raphael J. S. Costale
- *	List.h
- *	5/5/93
+/* Raphael J. S. Costale
+ * List.h
+ * 5/5/93
  *
- *	List class with Coorinate elements
+ * List class with Coorinate elements
  */
+
 #ifndef LIST_H
 #define LIST_H
+
 #include <stdlib.h>
-#include <ostream.h>
-#include"Coordinate.h"
+
+using namespace std;
+
+#include "Coordinate.h"
 
 typedef Coord Type;
 class List
@@ -24,15 +28,15 @@ public:
 	List& operator=(List&);
 	Type& operator[](int);
 	const Type& operator[](int) const;
-	int operator==(List&) const;
-	int operator!=(List&) const;
+	bool operator==(List) const;
+	bool operator!=(List) const;
 
 	int length() const;
 	int isMember(Type) const;
 	void clear();
 	List& insert(Type, int pIndex = 0);
 	List& append(Type);
-	Type remove(int pIndex = 0);
+	Type& remove(int pIndex = 0);
 	List& purge(Type);
 
 private:
@@ -50,5 +54,3 @@ private:
 };
 
 #endif
-
-// EOF

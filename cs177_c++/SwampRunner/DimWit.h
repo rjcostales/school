@@ -1,12 +1,15 @@
-/*	Raphael J. S. Costale
- *	DimWit.h
- *	5/5/93
+/* Raphael J. S. Costale
+ * DimWit.h
+ * 5/5/93
  */
+
 #ifndef DIMWIT_H
 #define DIMWIT_H
-#include <ostream.h>
-#include"Runner.h"
-#include"Swamp.h"
+
+using namespace std;
+
+#include "Runner.h"
+#include "Swamp.h"
 
 class DimWit : public Runner
 {
@@ -18,7 +21,7 @@ public:
 	void setPos(Coord);
 
 protected:
-	Coord step();  // value returned by virtual function move
+	Coord& step(); // value returned by virtual function move
 
 	Swamp *mSwamp;
 };
@@ -40,7 +43,7 @@ void DimWit::setPos(Coord p)
 	Runner::setPos(p);
 }
 
-Coord DimWit::step()
+Coord& DimWit::step()
 {
 	Coord temp = mPos;
 	do
@@ -53,5 +56,3 @@ Coord DimWit::step()
 }
 
 #endif
-
-// EOF

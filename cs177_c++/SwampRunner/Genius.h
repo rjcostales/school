@@ -1,11 +1,14 @@
-/*	Raphael J. S. Costale
- *	Genius.h
- *	5/5/93
+/* Raphael J. S. Costale
+ * Genius.h
+ * 5/5/93
  */
+
 #ifndef GENIUS_H
 #define GENIUS_H
-#include <ostream.h>
-#include"Wit.h"
+
+using namespace std;
+
+#include "Wit.h"
 
 class Genius : public Wit
 {
@@ -16,7 +19,7 @@ public:
 	void draw(int);
 	void setPos(Coord);
 protected:
-	Coord step();  // value returned by virtual function move
+	Coord& step(); // value returned by virtual function move
 };
 
 //	implementation
@@ -31,7 +34,7 @@ void Genius::setPos(Coord p)
 	Runner::setPos(p);
 }
 
-Coord Genius::step()
+Coord& Genius::step()
 {
 	Coord temp = mPos;
 	do
@@ -39,9 +42,8 @@ Coord Genius::step()
 		mPos = temp;
 		Wit::step();
 	} while (!mSwamp->isSafe(mPos));	// check if step is safe
+
 	return mPos;
 }
 
 #endif
-
-// EOF

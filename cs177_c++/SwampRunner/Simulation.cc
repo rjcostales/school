@@ -1,10 +1,13 @@
-/*	Raphael J. S. Costale
- *  Simulation.cc
- *	5/5/93 */
+/* Raphael J. S. Costale
+ * Simulation.cc
+ * 5/5/93
+ */
 
- #include "Simulation.h"
- void main()
- {
+using namespace std;
+
+#include "Simulation.h"
+
+int main() {
 	Simulation s;
-	s.run();
+	s.run();
 }

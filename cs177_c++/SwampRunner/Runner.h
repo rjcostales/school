@@ -1,10 +1,12 @@
-/*	Raphael J. S. Costale
- *	Runner.h - Abstract Base Class
- *	5/5/93
+/* Raphael J. S. Costale
+ * Runner.h - Abstract Base Class
+ * 5/5/93
  */
+
 #ifndef RUNNER_H
 #define RUNNER_H
-#include <ostream.h>
+
+using namespace std;
 
 class Runner
 {
@@ -15,31 +17,33 @@ public:
 	Coord move();
 	Coord& pos() { return mPos; }
 	void statistics();
-
 protected:
-	virtual Coord step();
+	virtual Coord& step();
 
 	Coord mPos;		// current position
 	int mAttemps;	// current attempt
 	int mMoves;		// total moves
 };
+
 //	implementation
-Coord Runner::move()
-{
-	mMoves++;
-	return step();
-}
-Coord Runner::step()
+Coord& Runner::step()
 {
 	Coord temp;
 	do
 	{
 		temp.x = (rand() % 3) - 1;	// pick a random offset
 		temp.y = (rand() % 3) - 1;	// from (-1, -1) to (1, 1)
-	} while (temp == Coord(0,0));	// exclude (0, 0)
-	mPos = mPos + temp;				// add it to current pos
+	} while (Coord(0, 0) == temp);	// exclude (0, 0)
+	mPos += temp;					// add it to current pos
 	return mPos;
 }
+
+Coord Runner::move()
+{
+	mMoves++;
+	return step();
+}
+
 void Runner::setPos(Coord p)
 {
 	mAttemps++;
@@ -47,10 +51,8 @@ void Runner::setPos(Coord p)
 }
 void Runner::statistics()
 {
-	cout <<"Moves: " << mMoves << '\t';
-	cout <<"Attemps: " << mAttemps << '\n';
+	cout << "Moves: " << mMoves << '\t';
+	cout << "Attemps: " << mAttemps << '\n';
 }
 
 #endif
-
-// EOF

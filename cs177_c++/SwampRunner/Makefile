@@ -1,3 +1,2 @@
 sim:	*.cc *.h
-		g++ -w *.cc -o sim
-		
+	g++ -w -std=c++98 *.cc -o sim

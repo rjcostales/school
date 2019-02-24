@@ -2,21 +2,16 @@
  * Token.h 3/20/93
  */
 #include <iostream>
-#include <iostream>
 using namespace std;
 
 #include "Token.h"
 
-char Token::matrix[3][3] =
-	{	// Initialize static matrix
-		{ ' ', ' ', ' ' },
-		{ ' ', ' ', ' ' },
-		{ ' ', ' ', ' ' }
-	};
+// Initialize static matrix
+char Token::matrix[3][3] =  {{' '},{},{}};
 
-int Token::move(int i)			// use digit input so it works with
-{								// keypad entry and ModTree storage.
-	switch (i)					// ugly but effective
+int Token::move(int i)				// use digit input so it works with
+{									// keypad entry and ModTree storage.
+	switch (i)						// ugly but effective
 	{
 		case 1: if (matrix[0][0] == ' ') matrix[0][0] = mC;
 				else i = 0;
@@ -52,7 +47,7 @@ int Token::move(int i)			// use digit input so it works with
 
 int Token::count()
 {
-	int	  c = 0;
+	int	 c = 0;
 
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)

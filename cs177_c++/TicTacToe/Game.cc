@@ -19,13 +19,13 @@ int main()
 
 	Computer.load((char *)"data");
 
-	cout << "Use keypad to enter moves\n";
-	cout << " 7 | 8 | 9 \n";
-	cout << "---+---+---\n";
-	cout << " 4 | 5 | 6 \n";
-	cout << "---+---+---\n";
-	cout << " 1 | 2 | 3 \n";
-	cout << "Enter 0 to quit\n\n";
+	cout << "Use keypad to enter moves" << endl;
+	cout << " 7 | 8 | 9 " << endl;
+	cout << "---+---+---" << endl;
+	cout << " 4 | 5 | 6 " << endl;
+	cout << "---+---+---" << endl;
+	cout << " 1 | 2 | 3 " << endl;
+	cout << "Enter 0 to quit" << endl << endl;
 
 	Computer.learn();
 
@@ -51,7 +51,7 @@ loop:
 		{
 			Computer.forget();
 			Token::print();
-			cout << "You win\n\n";
+			cout << "You win" << endl << endl;
 			break;
 		}
 
@@ -59,7 +59,7 @@ loop:
 		{
 			Computer.learn();
 			Token::print();
-			cout << "Draw\n\n";
+			cout << "Draw" << endl << endl;
 			break;
 		}
 
@@ -69,7 +69,7 @@ loop:
 		{
 			Computer.learn();
 			Token::print();
-			cout << "You lose!!!\n\n";
+			cout << "You lose!!!" << endl << endl;
 			break;
 		}
 	}

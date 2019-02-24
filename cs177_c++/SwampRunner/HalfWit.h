@@ -1,10 +1,13 @@
-/*	Raphael J. S. Costale
- *	HalfWit.h
- *	5/5/93
+/* Raphael J. S. Costale
+ * HalfWit.h
+ * 5/5/93
  */
+
 #ifndef HALFWIT_H
 #define HALFWIT_H
-#include <ostream.h>
+
+using namespace std;
+
 #include"DimWit.h"
 
 class HalfWit : public DimWit
@@ -18,7 +21,7 @@ public:
 	void setPos(Coord);
 
 protected:
-	Coord step();  // value returned by virtual function move
+	Coord& step();	// value returned by virtual function move
 
 	List mCurrPath;
 	List mQSandCells;
@@ -32,10 +35,10 @@ void HalfWit::draw(int isSafe)
 void HalfWit::setPos(Coord p)
 {
 	mCurrPath.clear();
-	mQSandCells.append(mPos);				// add to quicksand cell list
+	mQSandCells.append(mPos);	// add to quicksand cell list
 	Runner::setPos(p);
 }
-Coord HalfWit::step()
+Coord& HalfWit::step()
 {
 	Coord temp = mPos;
 	mCurrPath.append(mPos);
@@ -45,9 +48,7 @@ Coord HalfWit::step()
 		DimWit::step();
 	} while (mCurrPath.isMember(mPos) ||	// check if current path or
 			 mQSandCells.isMember(mPos));	// previous quicksand cell
+
 	return mPos;
 }
-
 #endif
-
-// EOF

@@ -1,11 +1,12 @@
-/*	Raphael J. S. Costale
- *	SCell.h - Abstract Base Class
- *	5/5/93
+/* Raphael J. S. Costale
+ * SCell.h - Abstract Base Class
+ * 5/5/93
  */
+ 
 #ifndef SCELL_H
 #define SCELL_H
-#include <ostream.h>
-#include <iostream.h>
+
+using namespace std;
 
 class SCell
 {
@@ -22,5 +23,3 @@ protected:
 };
 
 #endif
-
-// EOF

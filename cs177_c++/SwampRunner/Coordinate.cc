@@ -1,8 +1,14 @@
-/*	Raphael J. S. Costale
- *	Coordinate.cc
- *	5/5/93 */
-#ifndef COORD_CC#define COORD_CC
-#include"Coordinate.h"
+/* Raphael J. S. Costale
+ * Coordinate.cc
+ * 5/5/93
+ */
+
+#ifndef COORD_CC
+#define COORD_CC
+
+using namespace std;
+
+#include "Coordinate.h"
 
 // Friend operator
 ostream& operator<<(ostream& pOstream, const Coord& pC)
@@ -12,31 +18,39 @@ ostream& operator<<(ostream& pOstream, const Coord& pC)
 }
 
 // Coordinate operators
-void Coord::operator=(Coord& pC)
+void Coord::operator=(Coord pC)
 {
 	x = pC.x;
 	y = pC.y;
 }
 
-Coord Coord::operator+(Coord& pC)
-{
-	Coord temp;
-	temp.x = x + pC.x;
-	temp.y = y + pC.y;
-	return temp;
-}
 
-int Coord::operator==(Coord& pC) const
+
+Coord Coord::operator+(Coord pC)
+{
+	x = x + pC.x;
+	y = y + pC.y;
+}
+
+
+
+Coord Coord::operator+=(Coord pC)
+{
+	x = x + pC.x;
+	y = y + pC.y;
+}
+
+bool Coord::operator==(Coord pC) const
 {
 	return (x == pC.x && y == pC.y);
 }
 
-int Coord::operator!=(Coord& pC) const
+bool Coord::operator!=(Coord pC) const
 {
 	return (x != pC.x || y != pC.y);
-}
+}
 
-// Type Conversions
+// Type Conversions
 Coord::Coord(int pX, int pY )
 {
 	x = pX;
@@ -56,5 +70,3 @@ Coord::Coord(int pX, int pY )
 }
 
 #endif
-
-// EOF
