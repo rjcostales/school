@@ -6,8 +6,10 @@
 #ifndef GENIUS_H
 #define GENIUS_H
 
+#include <iostream>
 using namespace std;
-
+#include "Runner.h"
+#include "Swamp.h"
 #include "Wit.h"
 
 class Genius : public Wit

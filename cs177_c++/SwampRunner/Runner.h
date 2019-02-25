@@ -6,6 +6,7 @@
 #ifndef RUNNER_H
 #define RUNNER_H
 
+#include <iostream>
 using namespace std;
 
 class Runner
@@ -49,10 +50,11 @@ void Runner::setPos(Coord p)
 	mAttemps++;
 	mPos = p;
 }
+
 void Runner::statistics()
 {
 	cout << "Moves: " << mMoves << '\t';
-	cout << "Attemps: " << mAttemps << '\n';
+	cout << "Attemps: " << mAttemps << endl;
 }
 
 #endif

@@ -6,28 +6,15 @@
 #ifndef QSAND_H
 #define QSAND_H
 
+#include <stdbool.h>
 using namespace std;
-
 #include "SCell.h"
 
 class QSand : public SCell
 {
 public:
-// constructor
-	QSand(char image);
+	QSand() : SCell('+', false) {}
 
-// member funtions
-	int safe();
 };
-
-//	implementation
-QSand::QSand(char image = '+') : SCell(image)
-{
-}
-
-int QSand::safe()
-{
-	return 0;
-}
 
 #endif

@@ -8,8 +8,7 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include <stdlib.h>
-
+#include <iostream>
 using namespace std;
 
 #include "Coordinate.h"
@@ -17,27 +16,29 @@ using namespace std;
 typedef Coord Type;
 class List
 {
-	friend ostream& operator<<(ostream&, const List&);
 public:
-// constructors & destructors
+	// Constructors & Destructors
 	List() { mHead = 0; mSize = 0; }
+	List(const List&);
 	List(List&);
-	~List();
-// operator and member funtions
-	List operator+(List&);
-	List& operator=(List&);
-	Type& operator[](int);
-	const Type& operator[](int) const;
-	bool operator==(List) const;
-	bool operator!=(List) const;
+   ~List();
 
-	int length() const;
-	int isMember(Type) const;
+	// Operator & Member Funtions
+	List& operator=(List&);
+	List operator+(List&);
+	Type& operator[](int);
+	bool operator==(List);
+	bool operator!=(List);
+
+	int length();
+	int isMember(Type);
 	void clear();
-	List& insert(Type, int pIndex = 0);
 	List& append(Type);
+	List& insert(Type, int pIndex = 0);
 	Type& remove(int pIndex = 0);
 	List& purge(Type);
+
+	friend ostream& operator<<(ostream&, const List&);
 
 private:
 	int mSize;
@@ -49,8 +50,8 @@ private:
 		Element *mNext;
 	};
 	Element *mHead;
-	Type& atIndex(int) const;
-	void error(char *) const;
+	Type& atIndex(int);
+	void error(char *);
 };
 
 #endif

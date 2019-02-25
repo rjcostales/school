@@ -1,26 +1,46 @@
-/*	Raphael J. S. Costale
- *	List.cc
- *	5/5/93 */
+/* Raphael J. S. Costale
+ * List.cc
+ * 5/5/93
+ */
 
- #ifndef LIST_CC
- #define LIST_CC
+#ifndef LIST_CC
+#define LIST_CC
 
- #include"List.h"
+#include <stdlib.h>
+#include "List.h"
 
- // Friend operator
- ostream& operator<<(ostream& pOstream, const List& pList)
- {
-	 List::Element *curr = pList.mHead;
-
-	 pOstream <<"( ";
-	 while (curr)
-		pOstream << curr->mData << ((curr = curr->mNext) ? ", " : " ");
-		pOstream <<")";
-		return pOstream;
+// Constructors & Destructors
+List::List(List& pList)
+{
+	if (this != &pList)
+	{
+		mHead = 0;
+		mSize = 0;
+		int i = pList.mSize;
+		while (i--)
+			insert(pList[i]);
+	}
 }
 
-// List operators
-List List::operator+(List& pList)
+List::~List()
+{
+	clear();
+}
+
+// Operator & Member Funtions
+List& List::operator=(List& pList)
+{
+	if (this != &pList)
+	{
+		clear();
+		int i = pList.mSize;
+		while (i--)
+			insert(pList[i]);
+	}
+	return *this;
+}
+
+List List::operator+(List& pList)
 {
 	List bufList(*this);
 	for (int i = 0; i < pList.mSize; i++)
@@ -28,62 +48,30 @@
 	return bufList;
 }
 
-List& List::operator=(List& pList)
-{
-	if (this != &pList) {
-		clear();
-		int i = pList.mSize;
-		while (i--)
-			insert(pList[i]);
-	}
-	return *this;
-}
-
-Type& List::operator[](int pIndex)
-{
-	return atIndex(pIndex);
-}
-
-const Type& List::operator[](int pIndex) const
+Type& List::operator[](int pIndex)
 {
 	return atIndex(pIndex);
-}
+}
 
-bool List::operator==(List pList) const
+bool List::operator==(List pList)
 {
 	Element *curr = mHead;
 	if (mSize == pList.mSize)	{
 		for (int i = 0; i < mSize; i++)
 		{
 			if (operator[](i) != pList[i])
-			return 0;
+				return 0;
 			curr = curr->mNext;
 		}
-		return 1;
-	}	return 0;
+		return true;
+	}
+	return false;
 }
 
-bool List::operator!=(List pList) const
+bool List::operator!=(List pList)
 {
 	return !(*this == pList);
 }
-
-// Constructor & Destructor
-List::List(List& pList)
-{
-	if (this != &pList) {
-		mHead = 0;
-		mSize = 0;
-		int i = pList.mSize;
-		while (i--)
-			insert(pList[i]);
-	}
-}
-
-List::~List()
-{
-	clear();
-}
 
 // List methods
 void List::clear()
@@ -101,29 +89,27 @@
 List& List::insert(Type pData, int pIndex)
 {
 	Element *curr = mHead, *newElem = new Element(pData);
-
 	if (curr)	{
-		if ((pIndex >= 0)&&(pIndex <= mSize)) {
+		if ((pIndex >= 0)&&(pIndex <= mSize)){
 			if (pIndex) {
 				while (--pIndex)
 					curr = curr->mNext;
-
 				newElem->mNext = curr->mNext;
-				 curr->mNext = newElem;
-			 } else {
+				curr->mNext = newElem;
+			} else {
 				newElem->mNext = mHead;
-				 mHead = newElem;
+				mHead = newElem;
 			}
 		} else
 			error("insert(): subscript out of range\n");
-	 } else
+	} else
 		mHead = newElem;
-
 	mSize++;
 	return *this;
 }
 
-List& List::append(Type pData) {
+List& List::append(Type pData)
+{
 	return insert(pData, mSize);
 }
 
@@ -131,24 +117,21 @@
 {
 	Element *curr = mHead, *temp = mHead;
 	Type tmpData;
-
-	if (curr) {
-		if ((pIndex >= 0)&&(pIndex < mSize)) {
-			if (pIndex) {
+	if (curr){
+		if ((pIndex >= 0)&&(pIndex < mSize)){
+			if (pIndex){
 				while(--pIndex)
 					curr = curr->mNext;
-
 				temp = curr->mNext;
 				curr->mNext = temp->mNext;
-			}	else
+			} else
 				mHead = curr->mNext;
-
 			tmpData = temp->mData;
 			delete temp;
 			mSize--;
-		}	else
+		} else
 			error("remove(): subscript out of range\n");
-	}	else
+	} else
 		error("remove(): List is empty\n");
 	return tmpData;
 }
@@ -156,36 +139,36 @@
 List& List::purge(Type pData)
 {
 	Element *temp = mHead, *curr = mHead;
-	while (curr) {
+	while (curr){
 		if (curr->mData == pData)	{
 			if (curr == mHead)	{
 				mHead = curr->mNext;
 				delete curr;
 				curr = mHead;
-			} else {
+			} else {
 				temp->mNext = curr->mNext;
 				delete curr;
 				curr = temp->mNext;
 			}
-
 			mSize--;
-		}	else {
+		} else {
 			temp = curr;
 			curr = curr->mNext;
 		}
 	}
-
 	return *this;
 }
 
-int List::length() const {
+int List::length()
+{
 	return mSize;
 }
 
-int List::isMember(Type pData) const {
+int List::isMember(Type pData)
+{
 	Element *curr = mHead;
 	int count = 0;
-	while (curr)	{
+	while (curr) {
 		if (curr->mData == pData)
 			count++;
 		curr = curr->mNext;
@@ -193,11 +176,11 @@
 	return count;
 }
 
-Type& List::atIndex(int pIndex) const {
+Type& List::atIndex(int pIndex)
+{
 	Element *curr = mHead;
-
-	if (curr)	{
-		if ((pIndex >= 0)&&(pIndex < mSize))		{
+	if (curr) {
+		if ((pIndex >= 0)&&(pIndex < mSize)) {
 			while(pIndex--)
 				curr = curr->mNext;
 		} else
@@ -207,9 +190,21 @@
 	return curr->mData;
 }
 
-void List::error(char *errMessage) const {
+void List::error(char *errMessage)
+{
 	cerr << errMessage;
 	exit(0);
 }
+
+// Friend operator
+ostream& operator<<(ostream& pOstream, const List& pList)
+{
+	List::Element *curr = pList.mHead;
+	pOstream << "{";
+	while (curr)
+		pOstream << curr->mData << ((curr = curr->mNext) ? ", " : "");
+	pOstream << "}";
+	return pOstream;
+}
 
 #endif

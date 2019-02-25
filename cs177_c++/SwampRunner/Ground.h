@@ -6,26 +6,14 @@
 #ifndef GROUND_H
 #define GROUND_H
 
+#include <stdbool.h>
 using namespace std;
-
 #include "SCell.h"
 
 class Ground : public SCell
 {
 public:
-// constructor
-	Ground(char image);
-
-// member funtions
-	int safe();
+	Ground() : SCell(' ', true) {}
 };
 
-//	implementation
-Ground::Ground(char image = ' ') : SCell(image)
-{
-}
-int Ground::safe()
-{
-	return 1;
-}
 #endif

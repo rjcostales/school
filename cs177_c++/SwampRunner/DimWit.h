@@ -6,8 +6,8 @@
 #ifndef DIMWIT_H
 #define DIMWIT_H
 
+#include <iostream>
 using namespace std;
-
 #include "Runner.h"
 #include "Swamp.h"
 

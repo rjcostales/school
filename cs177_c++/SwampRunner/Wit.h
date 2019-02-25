@@ -19,13 +19,11 @@ public:
 
 protected:
 	Coord& step();				// value returned by virtual function move
-
+	List mCurrPath;
 	List mPrevPath;
 };
 
-/*
- * implementation
- */
+// implementation
 Wit::Wit(Swamp& swamp) : HalfWit(swamp) {}
 
 void Wit::draw(int isSafe)
@@ -46,8 +44,7 @@ Coord& Wit::step()
 	{								// element off of list
 		mCurrPath.append(mPos);		// add current position to current path
 		mPos = mPrevPath.remove(0); // remove the position in previous path
-	}
-	else
+	} else
 		mPos = HalfWit::step();		// act like a HalfWit
 
 	return mPos;

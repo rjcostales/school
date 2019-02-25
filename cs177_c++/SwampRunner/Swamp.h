@@ -2,7 +2,7 @@
  * Swamp.h
  * 5/5/93
  */
- 
+
 #ifndef SWAMP_H
 #define SWAMP_H
 
@@ -14,10 +14,11 @@
 class Swamp
 {
 public:
-// constructor & destructor
+	// Constructor & Destructor
 	Swamp(Coord, List);
-	~Swamp();
-// member functions
+   ~Swamp();
+
+	// Member Functions
 	void draw();
 	void getRunner(Runner *);	// put the runner in the swamp
 	bool inSwamp(Coord);		// returns true if cell is in swamp

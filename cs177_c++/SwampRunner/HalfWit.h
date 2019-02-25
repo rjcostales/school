@@ -6,9 +6,11 @@
 #ifndef HALFWIT_H
 #define HALFWIT_H
 
+#include <iostream>
 using namespace std;
-
-#include"DimWit.h"
+#include "Runner.h"
+#include "Swamp.h"
+#include "DimWit.h"
 
 class HalfWit : public DimWit
 {
@@ -26,18 +28,21 @@ protected:
 	List mCurrPath;
 	List mQSandCells;
 };
+
 //	implementation
 HalfWit::HalfWit(Swamp& swamp) : DimWit(swamp) {}
 void HalfWit::draw(int isSafe)
 {
 	cout << (isSafe ? 'H' : '*');
 }
+
 void HalfWit::setPos(Coord p)
 {
 	mCurrPath.clear();
 	mQSandCells.append(mPos);	// add to quicksand cell list
 	Runner::setPos(p);
 }
+
 Coord& HalfWit::step()
 {
 	Coord temp = mPos;
@@ -47,8 +52,9 @@ Coord& HalfWit::step()
 		mPos = temp;
 		DimWit::step();
 	} while (mCurrPath.isMember(mPos) ||	// check if current path or
-			 mQSandCells.isMember(mPos));	// previous quicksand cell
+			mQSandCells.isMember(mPos));	// previous quicksand cell
 
 	return mPos;
 }
+
 #endif
