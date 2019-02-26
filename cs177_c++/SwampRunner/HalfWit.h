@@ -8,7 +8,6 @@
 
 #include <iostream>
 using namespace std;
-#include "Runner.h"
 #include "Swamp.h"
 #include "DimWit.h"
 

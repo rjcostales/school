@@ -10,7 +10,6 @@
 
 #include <iostream>
 using namespace std;
-
 #include "Coordinate.h"
 
 typedef Coord Type;
