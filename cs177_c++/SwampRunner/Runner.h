@@ -12,7 +12,7 @@ using namespace std;
 class Runner
 {
 public:
-// member functions
+	// member functions
 	virtual void draw(int) = 0;
 	virtual void setPos(Coord);
 	Coord move();

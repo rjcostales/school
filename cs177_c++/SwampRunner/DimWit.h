@@ -14,9 +14,9 @@ using namespace std;
 class DimWit : public Runner
 {
 public:
-    // constructor
+	// constructor
 	DimWit(Swamp&);
-    // functions
+	// functions
 	void draw(int);
 	void setPos(Coord);
 protected:
