@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * SCell.h - Abstract Base Class
  * 5/5/93
  */
@@ -19,10 +19,8 @@ public:
 		mImage = image;
 		isSafe = safe;
 	}
-
 	bool safe() { return isSafe; };	// returns true is cell can be stood on
 	void draw() { cout << mImage; }
-
 protected:
 	char mImage;
 	bool isSafe;

@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * DimWit.h
  * 5/5/93
  */
@@ -14,15 +14,14 @@ using namespace std;
 class DimWit : public Runner
 {
 public:
-// constructor
+    // constructor
 	DimWit(Swamp&);
-// member functions
+    // functions
 	void draw(int);
 	void setPos(Coord);
-
 protected:
 	Coord& step(); // value returned by virtual function move
-
+	// attributes`
 	Swamp *mSwamp;
 };
 

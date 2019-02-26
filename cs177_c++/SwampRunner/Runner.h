@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * Runner.h - Abstract Base Class
  * 5/5/93
  */
@@ -20,7 +20,6 @@ public:
 	void statistics();
 protected:
 	virtual Coord& step();
-
 	Coord mPos;		// current position
 	int mAttemps;	// current attempt
 	int mMoves;		// total moves

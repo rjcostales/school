@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * Simulation.h
  * 5/5/93
  */
@@ -29,17 +29,15 @@ class Simulation
 public:
 	// Constructor
 	Simulation();
-	// Member Funtion
+	// Funtion
 	void run(int = 50);			// max number of attemps before stopping
-
 private:
 	void draw();
 	int validPath();
-
+	// Attributes
 	Swamp *mSwamp;
 	Coord mMax;
 	Runner *mRunner;
-
 	List mPath;
 	Coord mBeg;
 	Coord mEnd;

@@ -1,12 +1,12 @@
-/* Raphael J. S. Costale
- * Coordinate.cc
- * 5/5/93
+/* Raphael J. S. Costales
+ * Coordinate.cc
+ * 5/5/93
  */
 
-#ifndef COORD_CC
-#define COORD_CC
+#ifndef COORD_CC
+#define COORD_CC
 
-#include "Coordinate.h"
+#include "Coordinate.h"
 
 // Constructors
 Coord::Coord()
@@ -28,11 +28,11 @@ Coord::Coord(const Coord& pC)
 }
 
 // Coordinate operators
-void Coord::operator=(Coord pC)
-{
-	x = pC.x;
+void Coord::operator=(Coord pC)
+{
+	x = pC.x;
 	y = pC.y;
-}
+}
 
 Coord Coord::operator+(Coord pC)
 {
@@ -48,15 +48,15 @@ void Coord::operator+=(Coord pC)
 	y += pC.y;
 }
 
-bool Coord::operator==(Coord pC)
-{
+bool Coord::operator==(Coord pC)
+{
 	return (x == pC.x && y == pC.y);
-}
+}
 
-bool Coord::operator!=(Coord pC)
+bool Coord::operator!=(Coord pC)
 {
 	return (x != pC.x || y != pC.y);
-}
+}
 
 // Friend operator
 ostream& operator<<(ostream& pOstream, const Coord& pC)
@@ -65,4 +65,4 @@ ostream& operator<<(ostream& pOstream, const Coord& pC)
 	return pOstream;
 }
 
-#endif
+#endif

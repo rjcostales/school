@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * HalfWit.h
  * 5/5/93
  */
@@ -15,16 +15,14 @@ using namespace std;
 class HalfWit : public DimWit
 {
 public:
-// constructor
+	// constructor
 	HalfWit(Swamp&);
-
-// member functions
+	// functions
 	void draw(int);
 	void setPos(Coord);
-
 protected:
 	Coord& step();	// value returned by virtual function move
-
+	// attributes
 	List mCurrPath;
 	List mQSandCells;
 };

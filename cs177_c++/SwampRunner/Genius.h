@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * Genius.h
  * 5/5/93
  */
@@ -15,9 +15,9 @@ using namespace std;
 class Genius : public Wit
 {
 public:
-// constructor
+	// constructor
 	Genius(Swamp&);
-// member functions
+	// functions
 	void draw(int);
 	void setPos(Coord);
 protected:

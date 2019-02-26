@@ -1,7 +1,7 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * Simulation.cc
- * 5/5/93
- */
+ * 5/5/93
+ */
 
 #include "Simulation.h"
 

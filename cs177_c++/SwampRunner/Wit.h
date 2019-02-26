@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * Wit.h
  * 5/5/93
  */
@@ -11,14 +11,14 @@
 class Wit : public HalfWit
 {
 public:
-// constructor
+	// constructor
 	Wit(Swamp& swamp);
-// member funtions
+	// member funtions
 	void draw(int);
 	void setPos(Coord);
-
 protected:
 	Coord& step();				// value returned by virtual function move
+	// attributes
 	List mCurrPath;
 	List mPrevPath;
 };

@@ -1,4 +1,4 @@
-/* Raphael J. S. Costale
+/* Raphael J. S. Costales
  * List.h
  * 5/5/93
  *
@@ -22,24 +22,20 @@ public:
 	List(const List&);
 	List(List&);
    ~List();
-
 	// Operator & Member Funtions
 	List& operator=(List&);
 	List operator+(List&);
 	Type& operator[](int);
 	bool operator==(List);
 	bool operator!=(List);
-
 	int length();
 	int isMember(Type);
 	void clear();
 	List& append(Type);
 	List& insert(Type, int pIndex = 0);
-	Type& remove(int pIndex = 0);
+	Type remove(int pIndex = 0);
 	List& purge(Type);
-
 	friend ostream& operator<<(ostream&, const List&);
-
 private:
 	int mSize;
 	class Element
