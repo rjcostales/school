@@ -15,27 +15,18 @@ using namespace std;
 class HalfWit : public DimWit
 {
 public:
-// constructor
-	HalfWit(Swamp&);
-
-// member functions
-	void draw(int);
+	// constructor
+	HalfWit(Swamp& swamp) : DimWit(swamp) {}
+	// member functions
+	void draw(int isSafe) { cout << (isSafe ? 'H' : '*'); }
 	void setPos(Coord);
-
 protected:
 	Coord& step();	// value returned by virtual function move
-
 	List mCurrPath;
 	List mQSandCells;
 };
 
 //	implementation
-HalfWit::HalfWit(Swamp& swamp) : DimWit(swamp) {}
-void HalfWit::draw(int isSafe)
-{
-	cout << (isSafe ? 'H' : '*');
-}
-
 void HalfWit::setPos(Coord p)
 {
 	mCurrPath.clear();

@@ -15,22 +15,16 @@ using namespace std;
 class Genius : public Wit
 {
 public:
-// constructor
-	Genius(Swamp&);
-// member functions
-	void draw(int);
+	// constructor
+	Genius(Swamp& swamp) : Wit(swamp) {}
+	// member functions
+	void draw(int isSafe) { cout << (isSafe ? 'G' : '*'); }
 	void setPos(Coord);
 protected:
 	Coord& step(); // value returned by virtual function move
 };
 
 //	implementation
-Genius::Genius(Swamp& swamp) : Wit(swamp) {}
-void Genius::draw(int isSafe)
-{
-	cout << (isSafe ? 'G' : '*');
-}
-
 void Genius::setPos(Coord p)
 {
 	Runner::setPos(p);

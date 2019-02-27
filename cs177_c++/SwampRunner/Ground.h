@@ -13,6 +13,7 @@ using namespace std;
 class Ground : public SCell
 {
 public:
+	// constructor calls parent constructor
 	Ground() : SCell(' ', true) {}
 };
 

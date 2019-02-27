@@ -105,13 +105,13 @@ void Simulation::run(int attemps)
 		draw();
 		mRunner->move();
 
-		if (!mSwamp->isSafe(mRunner->pos())) {	// the runner drowned
+		if (!mSwamp->isSafe(mRunner->getPos())) {	// the runner drowned
 			draw();
 			mRunner->setPos(mBeg);
 			attemps--;
 		}
 
-		if (mRunner->pos() == mEnd) {			// the runner finished
+		if (mRunner->getPos() == mEnd) {			// the runner finished
 			draw();
 			cout <<"Finished!" << endl;
 			break;
@@ -172,7 +172,7 @@ void Swamp::draw()
 	{
 		for (int j = 0; j <= mMax.x; j++)
 		{
-			if (mRunner->pos() == Coord(j, i))		// draw runner
+			if (mRunner->getPos() == Coord(j, i))		// draw runner
 				mRunner->draw(isSafe(Coord(j, i)));	// draw splash
 			else									// instead of swamp
 				mSwamp[j][i]->draw();

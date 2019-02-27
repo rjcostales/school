@@ -14,15 +14,13 @@ using namespace std;
 class DimWit : public Runner
 {
 public:
-// constructor
+	// constructor
 	DimWit(Swamp&);
-// member functions
-	void draw(int);
+	// member functions
+	void draw(int isSafe) { cout << (isSafe ? 'D' : '*'); }
 	void setPos(Coord);
-
 protected:
 	Coord& step(); // value returned by virtual function move
-
 	Swamp *mSwamp;
 };
 
@@ -31,11 +29,6 @@ DimWit::DimWit(Swamp& swamp)
 {
 	mSwamp = &swamp;
 	mMoves = mAttemps = 0;
-}
-
-void DimWit::draw(int isSafe)
-{
-	cout << (isSafe ? 'D' : '*');
 }
 
 void DimWit::setPos(Coord p)

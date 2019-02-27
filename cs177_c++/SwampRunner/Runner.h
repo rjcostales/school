@@ -12,21 +12,26 @@ using namespace std;
 class Runner
 {
 public:
-// member functions
+	// member functions
 	virtual void draw(int) = 0;
 	virtual void setPos(Coord);
+	Coord& getPos() { return mPos; }
 	Coord move();
-	Coord& pos() { return mPos; }
 	void statistics();
 protected:
 	virtual Coord& step();
-
 	Coord mPos;		// current position
 	int mAttemps;	// current attempt
 	int mMoves;		// total moves
 };
 
 //	implementation
+void Runner::setPos(Coord p)
+{
+	mAttemps++;
+	mPos = p;
+}
+
 Coord& Runner::step()
 {
 	Coord temp;
@@ -43,12 +48,6 @@ Coord Runner::move()
 {
 	mMoves++;
 	return step();
-}
-
-void Runner::setPos(Coord p)
-{
-	mAttemps++;
-	mPos = p;
 }
 
 void Runner::statistics()

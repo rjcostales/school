@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "List.h"
 
-// Constructors & Destructors
+// constructor & destructors
 List::List(List& pList)
 {
 	if (this != &pList)
@@ -56,7 +56,7 @@ Type& List::operator[](int pIndex)
 bool List::operator==(List pList)
 {
 	Element *curr = mHead;
-	if (mSize == pList.mSize)	{
+if (mSize == pList.mSize)	{
 		for (int i = 0; i < mSize; i++)
 		{
 			if (operator[](i) != pList[i])
@@ -77,9 +77,9 @@ Type& List::operator[](int pIndex)
 void List::clear()
 {
 	Element *curr = mHead;
-	while (mHead)	{
+while (mHead)	{
 		mHead = mHead->mNext;
-		delete curr;
+delete curr;
 		curr = mHead;
 	}
 	mHead = 0;
@@ -89,23 +89,23 @@ Type& List::operator[](int pIndex)
 List& List::insert(Type pData, int pIndex)
 {
 	Element *curr = mHead, *newElem = new Element(pData);
-	if (curr)	{
+if (curr)	{
 		if ((pIndex >= 0)&&(pIndex <= mSize)){
 			if (pIndex) {
 				while (--pIndex)
 					curr = curr->mNext;
 				newElem->mNext = curr->mNext;
 				curr->mNext = newElem;
-			} else {
+			} else{
 				newElem->mNext = mHead;
-				mHead = newElem;
-			}
+		mHead = newElem;
+		}
 		} else
-			error("insert(): subscript out of range\n");
+		error("insert(): subscript out of range\n");
 	} else
 		mHead = newElem;
 	mSize++;
-	return *this;
+return *this;
 }
 
 List& List::append(Type pData)
@@ -139,19 +139,19 @@ Type& List::operator[](int pIndex)
 List& List::purge(Type pData)
 {
 	Element *temp = mHead, *curr = mHead;
-	while (curr){
-		if (curr->mData == pData)	{
+while (curr){
+if (curr->mData == pData)	{
 			if (curr == mHead)	{
 				mHead = curr->mNext;
 				delete curr;
 				curr = mHead;
-			} else {
+			} else{
 				temp->mNext = curr->mNext;
 				delete curr;
 				curr = temp->mNext;
 			}
 			mSize--;
-		} else {
+		} else{
 			temp = curr;
 			curr = curr->mNext;
 		}
@@ -167,10 +167,10 @@ Type& List::operator[](int pIndex)
 int List::isMember(Type pData)
 {
 	Element *curr = mHead;
-	int count = 0;
-	while (curr) {
-		if (curr->mData == pData)
-			count++;
+int count = 0;
+while (curr) {
+if (curr->mData == pData)
+	count++;
 		curr = curr->mNext;
 	}
 	return count;
@@ -181,7 +181,7 @@ Type& List::operator[](int pIndex)
 	Element *curr = mHead;
 	if (curr) {
 		if ((pIndex >= 0)&&(pIndex < mSize)) {
-			while(pIndex--)
+while(pIndex--)
 				curr = curr->mNext;
 		} else
 			error("operator[]: subscript out of range\n");
@@ -193,7 +193,7 @@ Type& List::operator[](int pIndex)
 void List::error(char *errMessage)
 {
 	cerr << errMessage;
-	exit(0);
+exit(0);
 }
 
 // Friend operator

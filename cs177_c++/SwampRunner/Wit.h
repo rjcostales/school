@@ -11,25 +11,18 @@
 class Wit : public HalfWit
 {
 public:
-// constructor
-	Wit(Swamp& swamp);
-// member funtions
-	void draw(int);
+	// constructor
+	Wit(Swamp& swamp) : HalfWit(swamp) {}
+	// member funtions
+	void draw(int isSafe) { cout << (isSafe ? 'W' : '*'); }
 	void setPos(Coord);
-
 protected:
-	Coord& step();				// value returned by virtual function move
+	Coord& step();		// value returned by virtual function move
 	List mCurrPath;
 	List mPrevPath;
 };
 
 // implementation
-Wit::Wit(Swamp& swamp) : HalfWit(swamp) {}
-
-void Wit::draw(int isSafe)
-{
-	cout << (isSafe ? 'W' : '*');
-}
 
 void Wit::setPos(Coord p)
 {

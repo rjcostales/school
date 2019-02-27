@@ -13,6 +13,7 @@ using namespace std;
 class QSand : public SCell
 {
 public:
+	// constructor calls parent constructor
 	QSand() : SCell('+', false) {}
 
 };
