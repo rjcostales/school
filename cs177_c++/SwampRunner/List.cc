@@ -10,10 +10,8 @@
 #include "List.h"
 
 // constructor & destructors
-List::List(List& pList)
-{
-	if (this != &pList)
-	{
+List::List(List& pList) {
+	if (this != &pList) {
 		mHead = 0;
 		mSize = 0;
 		int i = pList.mSize;
@@ -22,16 +20,13 @@ List::List(List& pList)
 	}
 }
 
-List::~List()
-{
+List::~List() {
 	clear();
 }
 
 // Operator & Member Funtions
-List& List::operator=(List& pList)
-{
-	if (this != &pList)
-	{
+List& List::operator=(List& pList) {
+	if (this != &pList) {
 		clear();
 		int i = pList.mSize;
 		while (i--)
@@ -40,25 +35,21 @@ List::~List()
 	return *this;
 }
 
-List List::operator+(List& pList)
-{
+List List::operator+(List& pList) {
 	List bufList(*this);
 	for (int i = 0; i < pList.mSize; i++)
 		bufList.append(pList[i]);
 	return bufList;
 }
 
-Type& List::operator[](int pIndex)
-{
+Type& List::operator[](int pIndex) {
 	return atIndex(pIndex);
 }
 
-bool List::operator==(List pList)
-{
+bool List::operator==(List pList) {
 	Element *curr = mHead;
-if (mSize == pList.mSize)	{
-		for (int i = 0; i < mSize; i++)
-		{
+	if (mSize == pList.mSize)	{
+		for (int i = 0; i < mSize; i++) {
 			if (operator[](i) != pList[i])
 				return 0;
 			curr = curr->mNext;
@@ -68,53 +59,48 @@ Type& List::operator[](int pIndex)
 	return false;
 }
 
-bool List::operator!=(List pList)
-{
+bool List::operator!=(List pList) {
 	return !(*this == pList);
 }
 
 // List methods
-void List::clear()
-{
+void List::clear() {
 	Element *curr = mHead;
-while (mHead)	{
+	while (mHead)	{
 		mHead = mHead->mNext;
-delete curr;
+		delete curr;
 		curr = mHead;
 	}
 	mHead = 0;
 	mSize = 0;
 }
 
-List& List::insert(Type pData, int pIndex)
-{
+List& List::insert(Type pData, int pIndex) {
 	Element *curr = mHead, *newElem = new Element(pData);
-if (curr)	{
+	if (curr)	{
 		if ((pIndex >= 0)&&(pIndex <= mSize)){
 			if (pIndex) {
 				while (--pIndex)
 					curr = curr->mNext;
 				newElem->mNext = curr->mNext;
 				curr->mNext = newElem;
-			} else{
+			} else {
 				newElem->mNext = mHead;
-		mHead = newElem;
-		}
+				mHead = newElem;
+			}
 		} else
-		error("insert(): subscript out of range\n");
-	} else
+			error("insert(): subscript out of range\n");
+	} else
 		mHead = newElem;
 	mSize++;
-return *this;
+	return *this;
 }
 
-List& List::append(Type pData)
-{
+List& List::append(Type pData) {
 	return insert(pData, mSize);
 }
 
-Type& List::remove(int pIndex)
-{
+Type& List::remove(int pIndex) {
 	Element *curr = mHead, *temp = mHead;
 	Type tmpData;
 	if (curr){
@@ -136,11 +122,10 @@ Type& List::operator[](int pIndex)
 	return tmpData;
 }
 
-List& List::purge(Type pData)
-{
+List& List::purge(Type pData) {
 	Element *temp = mHead, *curr = mHead;
-while (curr){
-if (curr->mData == pData)	{
+	while (curr){
+		if (curr->mData == pData)	{
 			if (curr == mHead)	{
 				mHead = curr->mNext;
 				delete curr;
@@ -159,30 +144,27 @@ Type& List::operator[](int pIndex)
 	return *this;
 }
 
-int List::length()
-{
+int List::length() {
 	return mSize;
 }
 
-int List::isMember(Type pData)
-{
+int List::isMember(Type pData) {
 	Element *curr = mHead;
-int count = 0;
-while (curr) {
-if (curr->mData == pData)
-	count++;
+	int count = 0;
+	while (curr) {
+		if (curr->mData == pData)
+			count++;
 		curr = curr->mNext;
 	}
 	return count;
 }
 
-Type& List::atIndex(int pIndex)
-{
+Type& List::atIndex(int pIndex) {
 	Element *curr = mHead;
 	if (curr) {
 		if ((pIndex >= 0)&&(pIndex < mSize)) {
-while(pIndex--)
-				curr = curr->mNext;
+			while(pIndex--)
+			curr = curr->mNext;
 		} else
 			error("operator[]: subscript out of range\n");
 	} else
@@ -190,15 +172,13 @@ Type& List::operator[](int pIndex)
 	return curr->mData;
 }
 
-void List::error(char *errMessage)
-{
+void List::error(char *errMessage) {
 	cerr << errMessage;
-exit(0);
+	exit(0);
 }
 
 // Friend operator
-ostream& operator<<(ostream& pOstream, const List& pList)
-{
+ostream& operator<<(ostream& pOstream, const List& pList) {
 	List::Element *curr = pList.mHead;
 	pOstream << "{";
 	while (curr)

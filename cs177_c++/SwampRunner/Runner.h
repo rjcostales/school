@@ -9,8 +9,7 @@
 #include <iostream>
 using namespace std;
 
-class Runner
-{
+class Runner {
 public:
 	// member functions
 	virtual void draw(int) = 0;

@@ -11,8 +11,7 @@
 #include <iostream>
 using namespace std;
 
-class Coord
-{
+class Coord{
 public:
 	// Constructors
 	Coord();

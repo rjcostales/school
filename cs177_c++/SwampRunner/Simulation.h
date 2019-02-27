@@ -24,30 +24,26 @@ using namespace std;
 
 #define min(x,y) ((x)<(y)?(x):(y))
 
-class Simulation
-{
+class Simulation {
 public:
-	// Constructor
+	// constructor
 	Simulation();
-	// Member Funtion
+	// funtion
 	void run(int = 50);			// max number of attemps before stopping
-
 private:
 	void draw();
 	int validPath();
-
+	// attributes
 	Swamp *mSwamp;
 	Coord mMax;
 	Runner *mRunner;
-
 	List mPath;
 	Coord mBeg;
 	Coord mEnd;
 };
 
 //	Simulation implementations
-Simulation::Simulation()
-{
+Simulation::Simulation() {
 	srand(time(NULL));
 
 	mPath.clear();
@@ -98,8 +94,7 @@ Simulation::Simulation()
 	mSwamp->getRunner(mRunner);					// put the runner in the swamp
 }
 
-void Simulation::run(int attemps)
-{
+void Simulation::run(int attemps) {
 	mRunner->setPos(mBeg);						// put runner at the start
 	while (attemps) {
 		draw();
@@ -119,16 +114,14 @@ void Simulation::run(int attemps)
 	}
 }
 
-void Simulation::draw()
-{
+void Simulation::draw() {
 	system("clear");
 	mSwamp->draw();
 	mRunner->statistics();
 	usleep(1000000);
 }
 
-int Simulation::validPath()
-{
+int Simulation::validPath() {
 	int l = mPath.length();
 	if (l < min(mMax.x, mMax.y))
 		return 0;
@@ -140,8 +133,7 @@ int Simulation::validPath()
 }
 
 //	Swamp implementation
-Swamp::Swamp(Coord pMax, List pPath)
-{
+Swamp::Swamp(Coord pMax, List pPath) {
 	mMax = pMax;
 	for (int i = 0; i <= mMax.y; i++) {
 		for (int j = 0; j <= mMax.x; j++) {
@@ -153,25 +145,20 @@ Swamp::Swamp(Coord pMax, List pPath)
 	}
 }
 
-Swamp::~Swamp()
-{
+Swamp::~Swamp() {
 	for (int i = 0; i <= mMax.y; i++) {
 		for (int j = 0; j <= mMax.x; j++)
 			delete mSwamp[j][i];
 	}
 }
 
-void Swamp::getRunner(Runner *runner)
-{
+void Swamp::getRunner(Runner *runner) {
 	mRunner = runner;
 }
 
-void Swamp::draw()
-{
-	for (int i = 0; i <= mMax.y; i++)
-	{
-		for (int j = 0; j <= mMax.x; j++)
-		{
+void Swamp::draw() {
+	for (int i = 0; i <= mMax.y; i++) {
+		for (int j = 0; j <= mMax.x; j++) {
 			if (mRunner->getPos() == Coord(j, i))		// draw runner
 				mRunner->draw(isSafe(Coord(j, i)));	// draw splash
 			else									// instead of swamp
@@ -182,14 +169,12 @@ void Swamp::draw()
 	}
 }
 
-bool Swamp::inSwamp(Coord pC)
-{
+bool Swamp::inSwamp(Coord pC) {
 	return ((pC.x >= 0) && (pC.x <= mMax.x) &&
 			(pC.y >= 0) && (pC.y <= mMax.y));
 }
 
-bool Swamp::isSafe(Coord p)
-{
+bool Swamp::isSafe(Coord p) {
 	return mSwamp[p.x][p.y]->safe();
 }
 

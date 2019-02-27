@@ -12,10 +12,9 @@
 using namespace std;
 
 #include "Coordinate.h"
-
 typedef Coord Type;
-class List
-{
+
+class List {
 public:
 	// Constructors & Destructors
 	List() { mHead = 0; mSize = 0; }

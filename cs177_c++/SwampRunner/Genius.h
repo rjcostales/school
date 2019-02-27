@@ -12,8 +12,7 @@ using namespace std;
 #include "Swamp.h"
 #include "Wit.h"
 
-class Genius : public Wit
-{
+class Genius : public Wit {
 public:
 	// constructor
 	Genius(Swamp& swamp) : Wit(swamp) {}
@@ -25,13 +24,11 @@ protected:
 };
 
 //	implementation
-void Genius::setPos(Coord p)
-{
+void Genius::setPos(Coord p) {
 	Runner::setPos(p);
 }
 
-Coord& Genius::step()
-{
+Coord& Genius::step() {
 	Coord temp = mPos;
 	do
 	{

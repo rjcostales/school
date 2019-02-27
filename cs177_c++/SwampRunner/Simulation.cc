@@ -5,8 +5,7 @@
 
 #include "Simulation.h"
 
-int main(void )
-{
+int main(void ) {
 	Simulation s;
 	s.run();
 }

@@ -10,8 +10,7 @@
 using namespace std;
 #include "SCell.h"
 
-class QSand : public SCell
-{
+class QSand : public SCell {
 public:
 	// constructor calls parent constructor
 	QSand() : SCell('+', false) {}

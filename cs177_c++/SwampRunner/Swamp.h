@@ -14,17 +14,16 @@
 class Swamp
 {
 public:
-	// Constructor & Destructor
+	// constructor & destructor
 	Swamp(Coord, List);
    ~Swamp();
-
-	// Member Functions
+	// functions
 	void draw();
 	void getRunner(Runner *);	// put the runner in the swamp
 	bool inSwamp(Coord);		// returns true if cell is in swamp
 	bool isSafe(Coord);			// returns true if cell is ground
-
 private:
+	// attributes
 	Runner *mRunner;
 	SCell *mSwamp[20][20];
 	Coord mMax;

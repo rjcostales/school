@@ -9,20 +9,18 @@
 #include "Coordinate.h"
 
 // Constructors
-Coord::Coord()
-{
+Coord::Coord() {
 	x = 0;
 	y = 0;
 }
 
-Coord::Coord(int pX, int pY)
-{	x = pX;
+Coord::Coord(int pX, int pY) {
+	x = pX;
 	y = pY;
 }
 
 // Type Conversions
-Coord::Coord(const Coord& pC)
-{
+Coord::Coord(const Coord& pC) {
 	x = pC.x;
 	y = pC.y;
 }
@@ -34,33 +32,28 @@ Coord::Coord(const Coord& pC)
 	y = pC.y;
 }
 
-Coord Coord::operator+(Coord pC)
-{
+Coord Coord::operator+(Coord pC) {
 	Coord coord;
 	coord.x = x + pC.x;
 	coord.y = y + pC.y;
 	return coord;
 }
 
-void Coord::operator+=(Coord pC)
-{
+void Coord::operator+=(Coord pC) {
 	x += pC.x;
 	y += pC.y;
 }
 
-bool Coord::operator==(Coord pC)
-{
+bool Coord::operator==(Coord pC) {
 	return (x == pC.x && y == pC.y);
 }
 
-bool Coord::operator!=(Coord pC)
-{
+bool Coord::operator!=(Coord pC) {
 	return (x != pC.x || y != pC.y);
 }
 
 // Friend operator
-ostream& operator<<(ostream& pOstream, const Coord& pC)
-{
+ostream& operator<<(ostream& pOstream, const Coord& pC) {
 	pOstream << '(' <<	pC.x <<", " << pC.y << ')';
 	return pOstream;
 }

@@ -10,8 +10,7 @@
 using namespace std;
 #include "SCell.h"
 
-class Ground : public SCell
-{
+class Ground : public SCell {
 public:
 	// constructor calls parent constructor
 	Ground() : SCell(' ', true) {}

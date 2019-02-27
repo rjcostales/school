@@ -12,8 +12,7 @@ using namespace std;
 #include "Swamp.h"
 #include "DimWit.h"
 
-class HalfWit : public DimWit
-{
+class HalfWit : public DimWit {
 public:
 	// constructor
 	HalfWit(Swamp& swamp) : DimWit(swamp) {}
@@ -27,15 +26,13 @@ protected:
 };
 
 //	implementation
-void HalfWit::setPos(Coord p)
-{
+void HalfWit::setPos(Coord p) {
 	mCurrPath.clear();
 	mQSandCells.append(mPos);	// add to quicksand cell list
 	Runner::setPos(p);
 }
 
-Coord& HalfWit::step()
-{
+Coord& HalfWit::step() {
 	Coord temp = mPos;
 	mCurrPath.append(mPos);
 	do

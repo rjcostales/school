@@ -11,8 +11,7 @@ using namespace std;
 #include "Runner.h"
 #include "Swamp.h"
 
-class DimWit : public Runner
-{
+class DimWit : public Runner {
 public:
 	// constructor
 	DimWit(Swamp&);
@@ -25,19 +24,16 @@ protected:
 };
 
 //	implementation
-DimWit::DimWit(Swamp& swamp)
-{
+DimWit::DimWit(Swamp& swamp) {
 	mSwamp = &swamp;
 	mMoves = mAttemps = 0;
 }
 
-void DimWit::setPos(Coord p)
-{
+void DimWit::setPos(Coord p) {
 	Runner::setPos(p);
 }
 
-Coord& DimWit::step()
-{
+Coord& DimWit::step() {
 	Coord temp = mPos;
 	do
 	{

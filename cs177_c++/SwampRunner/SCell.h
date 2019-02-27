@@ -10,8 +10,7 @@
 using namespace std;
 #include <stdbool.h>
 
-class SCell
-{
+class SCell {
 public:
 // Constructor
 	SCell(const char image, const bool safe)
